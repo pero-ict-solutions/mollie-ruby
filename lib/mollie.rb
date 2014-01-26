@@ -1,5 +1,5 @@
 require "mollie/version"
+require "mollie/payment"
 
 module Mollie
-  # Your code goes here...
 end
