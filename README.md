@@ -28,6 +28,8 @@ Or install it yourself as:
 
 the most basic way of getting paid is to prepare the payment on the Mollie server and then redirect the user to the provided `paymentUrl`. Make sure you store the payment `id` for further references. When the user makes a payment, Mollie will call the provided `redirect_url` webhook with the `id` as the POST parameter.
 
+### Prepare payment
+
 ```ruby
 amount = 99.99
 description = "My Cool product"
@@ -37,6 +39,8 @@ response = payment.prepare(amount, description, redirect_url)
 payment_id = response["id"]
 redirect_to response["links"]["paymentUrl"]
 ```
+
+### Get status
 
 ```ruby
 response = Mollie::Payment.status(payment_id)
