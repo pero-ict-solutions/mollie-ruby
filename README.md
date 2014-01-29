@@ -20,10 +20,6 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install mollie
-
 ## Usage
 
 the most basic way of getting paid is to prepare the payment on the Mollie server and then redirect the user to the provided `paymentUrl`. Make sure you store the payment `id` for further references. When the user makes a payment, Mollie will call the provided `redirect_url` webhook with the `id` as the POST parameter.
