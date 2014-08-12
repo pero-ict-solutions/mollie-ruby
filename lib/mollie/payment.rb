@@ -16,12 +16,13 @@ module Mollie
       "Bearer " + self.api_key
     end
 
-    def prepare(amount, description, redirect_url)
+    def prepare(amount, description, redirect_url, metadata = {})
       response = self.class.post('/payments',
         :body => {
           :amount => amount,
           :description => description,
-          :redirectUrl => redirect_url
+          :redirectUrl => redirect_url,
+          :metadata => metadata
         },
         :headers => {
           'Authorization' => auth_token
