@@ -38,4 +38,15 @@ describe Mollie::Payment do
       end
     end
   end
+
+  context "refund" do
+    it "refunds the payment" do
+      VCR.use_cassette('refund payment') do
+        payment = Mollie::Payment.new(api_key)
+        response = payment.refund("tr_8NQDMOE7EC")
+        expect(response["payment"]["status"]).to eql "refunded"
+      end
+    end
+  end
+
 end
