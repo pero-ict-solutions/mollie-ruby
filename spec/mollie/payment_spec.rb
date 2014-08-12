@@ -13,15 +13,17 @@ describe Mollie::Payment do
         amount = 99.99
         description = "My fantastic product"
         redirect_url = "http://localhost:3000/payments/1/update"
-        response = payment.prepare(amount, description, redirect_url)
+        response = payment.prepare(amount, description, redirect_url, {:order_id => "R232454365"})
 
-        expect(response["id"]).to eql "tr_8NQDMOE7EC"
+        expect(response["id"]).to eql "tr_ALc7B2h9UM"
         expect(response["mode"]).to eql "test"
         expect(response["status"]).to eql "open"
         expect(response["amount"]).to eql "99.99"
         expect(response["description"]).to eql description
 
-        expect(response["links"]["paymentUrl"]).to eql "https://www.mollie.nl/payscreen/pay/8NQDMOE7EC"
+        expect(response["metadata"]["order_id"]).to eql "R232454365"
+
+        expect(response["links"]["paymentUrl"]).to eql "https://www.mollie.nl/payscreen/pay/ALc7B2h9UM"
         expect(response["links"]["redirectUrl"]).to eql redirect_url
       end
     end
