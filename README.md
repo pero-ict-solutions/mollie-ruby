@@ -32,8 +32,8 @@ the most basic way of getting paid is to prepare the payment on the Mollie serve
 amount = 99.99
 description = "My Cool product"
 redirect_url = "http://mystore.com/orders/update"
-payment = Mollie::Payment.new(api_key)
-response = payment.prepare(amount, description, redirect_url)
+client = Mollie::Client.new(api_key)
+response = client.prepare_payment(amount, description, redirect_url)
 payment_id = response["id"]
 redirect_to response["links"]["paymentUrl"]
 ```
@@ -41,7 +41,8 @@ redirect_to response["links"]["paymentUrl"]
 ### Get status
 
 ```ruby
-response = Mollie::Payment.status(payment_id)
+client = Mollie::Client.new(api_key)
+response = client.payment_status(payment_id)
 response["status"]
 ```
 
