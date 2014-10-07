@@ -2,7 +2,7 @@ require 'httparty'
 require 'json'
 
 module Mollie
-  class Payment
+  class Client
     include HTTParty
     base_uri 'https://api.mollie.nl/v1'
     format :json
@@ -16,7 +16,7 @@ module Mollie
       "Bearer " + self.api_key
     end
 
-    def prepare(amount, description, redirect_url, metadata = {})
+    def prepare_payment(amount, description, redirect_url, metadata = {})
       response = self.class.post('/payments',
         :body => {
           :amount => amount,
@@ -31,7 +31,7 @@ module Mollie
       JSON.parse(response.body)
     end
 
-    def status(payment_id)
+    def payment_status(payment_id)
       response = self.class.get("/payments/#{payment_id}",
         :headers => {
           'Authorization' => auth_token
@@ -40,7 +40,7 @@ module Mollie
       JSON.parse(response.body)
     end
 
-    def refund(payment_id)
+    def refund_payment(payment_id)
       response = self.class.post("/payments/#{payment_id}/refunds",
         :headers => {
           'Authorization' => auth_token

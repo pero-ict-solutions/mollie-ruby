@@ -1,5 +1,2 @@
 require "mollie/version"
-require "mollie/payment"
-
-module Mollie
-end
+require "mollie/client"
