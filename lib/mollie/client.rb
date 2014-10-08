@@ -38,7 +38,8 @@ module Mollie
           'Authorization' => auth_token
         }
       )
-      JSON.parse(response.body)
+      response = JSON.parse(response.body)
+      response["data"].map {|issuer| {id: issuer["id"], name: issuer["name"]} }
     end
 
     def payment_status(payment_id)

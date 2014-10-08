@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       Authorization:
-      - Bearer test_6zjmE6z9SRyzUs7hRbl7AY6MU5jFoW
+      - Bearer test_4drFuX5HdjBaFxdXoaABYD8yO4HjuT
   response:
     status:
       code: 200
@@ -39,6 +39,6 @@ http_interactions:
       string: '{"id":"tr_8NQDMOE7EC","mode":"test","createdDatetime":"2014-08-12T12:27:26.0Z","status":"paid","paidDatetime":"2014-08-12T12:33:23.0Z","amount":"99.99","description":"My
         fantastic product","method":"ideal","metadata":null,"details":{"consumerName":"T.
         TEST","consumerAccount":"NL17RABO0213698412","consumerBic":"TESTNL99"},"locale":"nl","links":{"redirectUrl":"http://localhost:3000/payments/1/update"}}'
-    http_version: 
+    http_version:
   recorded_at: Tue, 12 Aug 2014 12:33:39 GMT
 recorded_with: VCR 2.9.2

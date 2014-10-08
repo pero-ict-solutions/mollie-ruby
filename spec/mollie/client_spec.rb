@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Mollie::Client do
 
-  let(:api_key) { "test_6zjmE6z9SRyzUs7hRbl7AY6MU5jFoW" }
+  let(:api_key) { "test_4drFuX5HdjBaFxdXoaABYD8yO4HjuT" }
 
   context '#prepare' do
 
@@ -34,9 +34,8 @@ describe Mollie::Client do
       VCR.use_cassette('get_issuers_list') do
         client = Mollie::Client.new(api_key)
         response = client.issuers
-        expect(response["data"].first["id"]).to eql "ideal_TESTNL99"
-        expect(response["data"].first["name"]).to eql "TBM Bank"
-        expect(response["data"].first["method"]).to eql "ideal"
+        expect(response.first[:id]).to eql "ideal_TESTNL99"
+        expect(response.first[:name]).to eql "TBM Bank"
       end
     end
   end
@@ -59,6 +58,16 @@ describe Mollie::Client do
         client = Mollie::Client.new(api_key)
         response = client.refund_payment("tr_8NQDMOE7EC")
         expect(response["payment"]["status"]).to eql "refunded"
+      end
+    end
+  end
+
+  context "error response" do
+    it "will raise an Exception" do
+      VCR.use_cassette('invalid_key') do
+        client = Mollie::Client.new(api_key << "foo")
+        response = client.refund_payment("tr_8NQDMOE7EC")
+        expect(response["error"]).to_not be nil
       end
     end
   end
