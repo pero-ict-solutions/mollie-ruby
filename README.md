@@ -1,6 +1,9 @@
 # Mollie API client for Ruby
 
-[![Gem Version](https://badge.fury.io/rb/mollie-ruby.svg)](http://badge.fury.io/rb/mollie-ruby) [![wercker status](https://app.wercker.com/status/a8cb5d924bf5a477b7e7b0b971a51470/m/master "wercker status")](https://app.wercker.com/project/bykey/a8cb5d924bf5a477b7e7b0b971a51470)
+[![Gem Version](https://badge.fury.io/rb/mollie-ruby.svg)](http://badge.fury.io/rb/mollie-ruby)
+[![wercker status](https://app.wercker.com/status/a8cb5d924bf5a477b7e7b0b971a51470/m/master "wercker status")](https://app.wercker.com/project/bykey/a8cb5d924bf5a477b7e7b0b971a51470)
+[![Code Climate](https://codeclimate.com/github/pero-ict-solutions/mollie-ruby/badges/gpa.svg)](https://codeclimate.com/github/pero-ict-solutions/mollie-ruby)
+[![Test Coverage](https://codeclimate.com/github/pero-ict-solutions/mollie-ruby/badges/coverage.svg)](https://codeclimate.com/github/pero-ict-solutions/mollie-ruby)
 
 Accepting [iDEAL](https://www.mollie.nl/betaaldiensten/ideal/), [Mister Cash](https://www.mollie.nl/betaaldiensten/mistercash/), [Creditcard](https://www.mollie.nl/betaaldiensten/creditcard/), and [paysafecard](https://www.mollie.nl/betaaldiensten/paysafecard/) online payments without fixed monthly costs or any punishing registration procedures. Just use the Mollie API to receive payments directly on your website.
 
