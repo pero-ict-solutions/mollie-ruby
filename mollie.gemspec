@@ -4,7 +4,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'mollie/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "mollie"
+  spec.name          = "mollie-ruby"
   spec.version       = Mollie::VERSION
   spec.authors       = ["Peter Berkenbosch"]
   spec.email         = ["peter@pero-ict.nl"]

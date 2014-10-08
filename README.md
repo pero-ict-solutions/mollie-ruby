@@ -16,7 +16,7 @@ To use the Mollie API client, the following things are required:
 
 Add this line to your application's Gemfile:
 
-    gem 'mollie', github: 'pero-ict-solutions/mollie'
+    gem 'mollie-ruby', github: 'pero-ict-solutions/mollie-ruby', require: 'mollie'
 
 And then execute:
 
