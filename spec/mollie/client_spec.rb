@@ -29,6 +29,18 @@ describe Mollie::Client do
     end
   end
 
+  context "issuers" do
+    it "returns a hash with the iDeal issuers" do
+      VCR.use_cassette('get_issuers_list') do
+        client = Mollie::Client.new(api_key)
+        response = client.issuers
+        expect(response["data"].first["id"]).to eql "ideal_TESTNL99"
+        expect(response["data"].first["name"]).to eql "TBM Bank"
+        expect(response["data"].first["method"]).to eql "ideal"
+      end
+    end
+  end
+
   context 'status' do
     context 'when payment is paid' do
       it "returns the paid status" do

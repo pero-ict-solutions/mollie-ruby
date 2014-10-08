@@ -31,6 +31,15 @@ module Mollie
       JSON.parse(response.body)
     end
 
+    def issuers
+      response = self.class.get("/issuers",
+        :headers => {
+          'Authorization' => auth_token
+        }
+      )
+      JSON.parse(response.body)
+    end
+
     def payment_status(payment_id)
       response = self.class.get("/payments/#{payment_id}",
         :headers => {
