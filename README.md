@@ -5,6 +5,8 @@
 [![Code Climate](https://codeclimate.com/github/pero-ict-solutions/mollie-ruby/badges/gpa.svg)](https://codeclimate.com/github/pero-ict-solutions/mollie-ruby)
 [![Test Coverage](https://codeclimate.com/github/pero-ict-solutions/mollie-ruby/badges/coverage.svg)](https://codeclimate.com/github/pero-ict-solutions/mollie-ruby)
 
+[![Stories in Ready](https://badge.waffle.io/pero-ict-solutions/mollie-ruby.svg?label=ready&title=Ready)](http://waffle.io/pero-ict-solutions/mollie-ruby)
+
 Accepting [iDEAL](https://www.mollie.nl/betaaldiensten/ideal/), [Mister Cash](https://www.mollie.nl/betaaldiensten/mistercash/), [Creditcard](https://www.mollie.nl/betaaldiensten/creditcard/), and [paysafecard](https://www.mollie.nl/betaaldiensten/paysafecard/) online payments without fixed monthly costs or any punishing registration procedures. Just use the Mollie API to receive payments directly on your website.
 
 ## Requirements
