@@ -60,5 +60,14 @@ module Mollie
       JSON.parse(response.body)
     end
 
+    def methods(method = nil)
+      response = self.class.get("/methods/#{method}",
+        :headers => {
+          'Authorization' => auth_token
+        }
+      )
+      JSON.parse(response.body)
+    end
+
   end
 end

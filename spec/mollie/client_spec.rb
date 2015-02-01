@@ -62,6 +62,42 @@ describe Mollie::Client do
     end
   end
 
+  context 'methods' do
+    it 'returns a hash with methods' do
+      VCR.use_cassette('get methods list') do
+        client = Mollie::Client.new(api_key)
+        response = client.methods
+
+        expect(response['totalCount']).to eql 8
+        expect(response['data'].first['id']).to eql 'ideal'
+        expect(response['data'].first['description']).to eql 'iDEAL'
+
+        expect(response['data'].first['amount']['minimum']).to eql '0.55'
+        expect(response['data'].first['amount']['maximum']).to eql '50000.00'
+
+        expect(response['data'].first['image']['normal']).to eql 'https://www.mollie.com/images/payscreen/methods/ideal.png'
+        expect(response['data'].first['image']['bigger']).to eql 'https://www.mollie.com/images/payscreen/methods/ideal@2x.png'
+      end
+    end
+
+    it 'returns a hash for ideal method' do
+      VCR.use_cassette('get ideal method') do
+
+        client = Mollie::Client.new(api_key)
+        response = client.methods('ideal')
+
+        expect(response['id']).to eql 'ideal'
+        expect(response['description']).to eql 'iDEAL'
+
+        expect(response['amount']['minimum']).to eql '0.55'
+        expect(response['amount']['maximum']).to eql '50000.00'
+
+        expect(response['image']['normal']).to eql 'https://www.mollie.com/images/payscreen/methods/ideal.png'
+        expect(response['image']['bigger']).to eql 'https://www.mollie.com/images/payscreen/methods/ideal@2x.png'
+      end
+    end
+  end
+
   context "error response" do
     it "will raise an Exception" do
       VCR.use_cassette('invalid_key') do
