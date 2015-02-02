@@ -62,11 +62,11 @@ describe Mollie::Client do
     end
   end
 
-  context 'methods' do
-    it 'returns a hash with methods' do
+  context 'payment_methods' do
+    it 'returns a hash with payment methods' do
       VCR.use_cassette('get methods list') do
         client = Mollie::Client.new(api_key)
-        response = client.methods
+        response = client.payment_methods
 
         expect(response['totalCount']).to eql 8
         expect(response['data'].first['id']).to eql 'ideal'
@@ -84,7 +84,7 @@ describe Mollie::Client do
       VCR.use_cassette('get ideal method') do
 
         client = Mollie::Client.new(api_key)
-        response = client.methods('ideal')
+        response = client.payment_methods('ideal')
 
         expect(response['id']).to eql 'ideal'
         expect(response['description']).to eql 'iDEAL'

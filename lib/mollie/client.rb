@@ -60,7 +60,7 @@ module Mollie
       JSON.parse(response.body)
     end
 
-    def methods(method = nil)
+    def payment_methods(method = nil)
       response = self.class.get("/methods/#{method}",
         :headers => {
           'Authorization' => auth_token
